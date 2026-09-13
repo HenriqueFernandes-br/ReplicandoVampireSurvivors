@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://darb7fyd4i0d5"]
+
+[ext_resource type="Script" uid="uid://cmm0cex261wcm" path="res://jogador.gd" id="1_c2wt1"]
+[ext_resource type="Texture2D" uid="uid://bcnp6ee8ags6" path="res://chars/antonio/4.png" id="2_j3kwt"]
+[ext_resource type="Texture2D" uid="uid://gib8bf6mq25y" path="res://chars/antonio/1.png" id="3_xswob"]
+[ext_resource type="Texture2D" uid="uid://4sci3jhma8w8" path="res://chars/antonio/2.png" id="4_82vy7"]
+[ext_resource type="Texture2D" uid="uid://bplbrnyd6sgv5" path="res://chars/antonio/3.png" id="5_kdflp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j3kwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j3kwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j3kwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j3kwt")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xswob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_82vy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kdflp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_j3kwt")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 31.815664
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
+radius = 33.112587
+
+[node name="Jogador" type="CharacterBody2D" unique_id=1998024725]
+scale = Vector2(0.755, 0.755)
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_c2wt1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1375820578]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(0.345, 0.345)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1041234778]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1856370712]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=963977840]
+shape = SubResource("CircleShape2D_yf5fn")
+
+[node name="IntervaloDano" type="Timer" parent="." unique_id=13709901]
+wait_time = 0.5
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Hitbox" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="IntervaloDano" to="." method="_on_intervalo_dano_timeout"]

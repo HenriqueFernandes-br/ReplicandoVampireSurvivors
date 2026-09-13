@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InimigoData" format=3 uid="uid://c8dyrml07dlk6"]
+
+[ext_resource type="Script" uid="uid://7cb6yd8uiff8" path="res://inimigo/InimigoData.gd" id="1_wfjfh"]
+[ext_resource type="SpriteFrames" uid="uid://c5ghwxdes1ig1" path="res://inimigo/Pipeestrello/pipeestrello_frames.tres" id="2_i65sr"]
+
+[resource]
+script = ExtResource("1_wfjfh")
+sprite_frames = ExtResource("2_i65sr")
+vida_maxima = 5
+dano = 5
+metadata/_custom_type_script = "uid://7cb6yd8uiff8"

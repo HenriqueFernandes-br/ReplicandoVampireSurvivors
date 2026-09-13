@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InimigoData" format=3 uid="uid://dg7y1p7surmxv"]
+
+[ext_resource type="Script" uid="uid://7cb6yd8uiff8" path="res://inimigo/InimigoData.gd" id="1_uu6uu"]
+[ext_resource type="SpriteFrames" uid="uid://c33vg4rjj4foa" path="res://inimigo/Zombie/Zombie_frames.tres" id="2_rfqam"]
+
+[resource]
+script = ExtResource("1_uu6uu")
+sprite_frames = ExtResource("2_rfqam")
+metadata/_custom_type_script = "uid://7cb6yd8uiff8"

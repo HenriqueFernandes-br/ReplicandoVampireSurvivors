@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bl2ky8rufbiw"]
+
+[ext_resource type="Script" uid="uid://dgxafhsnal3u8" path="res://jogo.gd" id="1_1ap6j"]
+[ext_resource type="Texture2D" uid="uid://vvfj54ayljkx" path="res://scenario/Bestiary-Mad_Forest.png" id="1_evvns"]
+[ext_resource type="Script" uid="uid://7cb6yd8uiff8" path="res://inimigo/InimigoData.gd" id="2_45nkh"]
+[ext_resource type="PackedScene" uid="uid://darb7fyd4i0d5" path="res://jogador.tscn" id="2_yq54j"]
+[ext_resource type="PackedScene" uid="uid://me33qgv33qq5" path="res://scenario/pilar_pedra.tscn" id="3_yq54j"]
+[ext_resource type="Resource" uid="uid://c8dyrml07dlk6" path="res://inimigo/Pipeestrello/data/pipeestrello_data.tres" id="3_ysdx3"]
+[ext_resource type="Resource" uid="uid://dg7y1p7surmxv" path="res://inimigo/Zombie/data/zombie_data.tres" id="4_t8pok"]
+
+[node name="Jogo" type="Node2D" unique_id=714268050]
+script = ExtResource("1_1ap6j")
+tipos_disponiveis = Array[ExtResource("2_45nkh")]([ExtResource("3_ysdx3"), ExtResource("4_t8pok")])
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=751222872]
+repeat_size = Vector2(1920, 1080)
+repeat_times = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1622821487]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(606, 315)
+texture = ExtResource("1_evvns")
+region_enabled = true
+region_rect = Rect2(0, 0, 1920, 1080)
+
+[node name="Jogador" parent="." unique_id=1998024725 instance=ExtResource("2_yq54j")]
+position = Vector2(601, 316)
+
+[node name="Camera2D" type="Camera2D" parent="Jogador" unique_id=754521398]
+position = Vector2(1, -4)
+
+[node name="Pilares" type="Node2D" parent="." unique_id=439274143]
+
+[node name="PilarPedra" parent="Pilares" unique_id=655206488 instance=ExtResource("3_yq54j")]
+position = Vector2(841, 301)
+
+[node name="PilarPedra2" parent="Pilares" unique_id=1503177917 instance=ExtResource("3_yq54j")]
+position = Vector2(258, 158)
+
+[node name="PilarPedra3" parent="Pilares" unique_id=1191889530 instance=ExtResource("3_yq54j")]
+position = Vector2(787, 636)
+
+[node name="PilarPedra4" parent="Pilares" unique_id=787131526 instance=ExtResource("3_yq54j")]
+position = Vector2(1347, 540)
+
+[node name="PilarPedra5" parent="Pilares" unique_id=1898159477 instance=ExtResource("3_yq54j")]
+position = Vector2(217, 468)
+
+[node name="PilarPedra6" parent="Pilares" unique_id=1935625084 instance=ExtResource("3_yq54j")]
+position = Vector2(706, 52)
+
+[node name="Timer" type="Timer" parent="." unique_id=960163674]
+wait_time = 0.17
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://me33qgv33qq5"]
+
+[ext_resource type="Texture2D" uid="uid://bfx5jw8bw07s3" path="res://scenario/pilar.png" id="1_fdb3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
+size = Vector2(25, 22.5)
+
+[node name="PilarPedra" type="StaticBody2D" unique_id=655206488]
+scale = Vector2(2, 2)
+collision_mask = 0
+
+[node name="Pilar" type="Sprite2D" parent="." unique_id=2079381106]
+texture_filter = 1
+texture = ExtResource("1_fdb3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1281018110]
+position = Vector2(-1.5, 23.75)
+shape = SubResource("RectangleShape2D_3gngh")

@@ -1,0 +1,103 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c33vg4rjj4foa"]
+
+[ext_resource type="Texture2D" uid="uid://6261ulb6csn7" path="res://inimigo/Zombie/sprites/alive/1.png" id="1_6gitv"]
+[ext_resource type="Texture2D" uid="uid://d1rahvtlsf63j" path="res://inimigo/Zombie/sprites/alive/2.png" id="2_frl0f"]
+[ext_resource type="Texture2D" uid="uid://duomt7cor56ej" path="res://inimigo/Zombie/sprites/alive/3.png" id="3_j2ivn"]
+[ext_resource type="Texture2D" uid="uid://lnsub5uhqqnt" path="res://inimigo/Zombie/sprites/alive/4.png" id="4_4ple4"]
+[ext_resource type="Texture2D" uid="uid://c2uxlhidxdmmx" path="res://inimigo/Zombie/sprites/death/1.png" id="5_l8ihf"]
+[ext_resource type="Texture2D" uid="uid://bddraykww257k" path="res://inimigo/Zombie/sprites/death/2.png" id="6_xxtvj"]
+[ext_resource type="Texture2D" uid="uid://ctynw0y31gcfc" path="res://inimigo/Zombie/sprites/death/3.png" id="7_mvb05"]
+[ext_resource type="Texture2D" uid="uid://bv8h5i4p5gr6n" path="res://inimigo/Zombie/sprites/death/4.png" id="8_0gb76"]
+[ext_resource type="Texture2D" uid="uid://cqhi4pat4giwk" path="res://inimigo/Zombie/sprites/death/5.png" id="9_211sr"]
+[ext_resource type="Texture2D" uid="uid://ceje6cfg4mch0" path="res://inimigo/Zombie/sprites/death/6.png" id="10_sxbqh"]
+[ext_resource type="Texture2D" uid="uid://d36ulaxp8vkfo" path="res://inimigo/Zombie/sprites/death/7.png" id="11_xwbd4"]
+[ext_resource type="Texture2D" uid="uid://ccfxch3xlpxij" path="res://inimigo/Zombie/sprites/death/8.png" id="12_svp0o"]
+[ext_resource type="Texture2D" uid="uid://0d7cp6t0fhes" path="res://inimigo/Zombie/sprites/death/9.png" id="13_231j5"]
+[ext_resource type="Texture2D" uid="uid://ci84s04q14ot" path="res://inimigo/Zombie/sprites/death/10.png" id="14_fonhs"]
+[ext_resource type="Texture2D" uid="uid://8n1pbdpoqluw" path="res://inimigo/Zombie/sprites/death/11.png" id="15_446ab"]
+[ext_resource type="Texture2D" uid="uid://bf5jdvjnjwlfs" path="res://inimigo/Zombie/sprites/death/12.png" id="16_hg341"]
+[ext_resource type="Texture2D" uid="uid://chrlnkedk5ssn" path="res://inimigo/Zombie/sprites/death/13.png" id="17_xioxq"]
+[ext_resource type="Texture2D" uid="uid://b007j7pns2uca" path="res://inimigo/Zombie/sprites/death/14.png" id="18_bbjyl"]
+[ext_resource type="Texture2D" uid="uid://c71ivtcknhgow" path="res://inimigo/Zombie/sprites/death/15.png" id="19_aq0ja"]
+[ext_resource type="Texture2D" uid="uid://cl27kgdbet30x" path="res://inimigo/Zombie/sprites/death/16.png" id="20_hikdy"]
+[ext_resource type="Texture2D" uid="uid://ck7elsd4a0gom" path="res://inimigo/Zombie/sprites/death/17.png" id="21_l8rrx"]
+[ext_resource type="Texture2D" uid="uid://bouuqpbk3qrib" path="res://inimigo/Zombie/sprites/death/18.png" id="22_05c4s"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6gitv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_frl0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j2ivn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4ple4")
+}],
+"loop": 1,
+"name": &"alive",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_l8ihf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xxtvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_mvb05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0gb76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_211sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sxbqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_xwbd4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_svp0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_231j5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fonhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_446ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hg341")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xioxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_bbjyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_aq0ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_hikdy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_l8rrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_05c4s")
+}],
+"loop": 0,
+"name": &"death",
+"speed": 13.0
+}]
