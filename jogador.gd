@@ -44,6 +44,11 @@ func _physics_process(delta):
 	var inimigos_encostando = $Hitbox.get_overlapping_bodies()
 	if not inimigos_encostando:
 		sofrendo_dano = false
+	
+	if vida_atual < 0:
+		vida_atual = 0
+	
+	print(vida_atual)
 
 # ==============================================================================
 # MÉTODOS CUSTOMIZADOS (CONTROLE E LÓGICA DO JOGADOR)
@@ -55,7 +60,6 @@ func get_input():
 
 func sofrer_dano():
 	vida_atual -= dano_sofrido
-
 # ==============================================================================
 # SINAIS (CONNECTORS)
 # ==============================================================================

@@ -9,8 +9,6 @@ var vida_atual: int
 var dano: int
 var alvo: Node2D
 var speed: float
-var velocidade_empurrao_sofrido := Vector2.ZERO
-@export var atrito_empurrao_sofrido := 500.0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var colisao: CollisionShape2D = $CollisionShape2D
@@ -31,14 +29,11 @@ func configurar(d: InimigoData) -> void:
 
 func seguir_jogador():
 	var direction = global_position.direction_to(alvo.global_position)
-	velocity = direction * speed + velocidade_empurrao_sofrido
+	velocity = direction * speed
 	
 	move_and_slide()
 	if velocity.x != 0:
 		sprite.flip_h = (velocity.x < 0)
-
-func empurrar(direcao: Vector2, forca: float):
-	velocidade_empurrao_sofrido = direcao.normalized() * forca
 
 func _physics_process(delta: float) -> void:
 	seguir_jogador()
