@@ -1,18 +1,29 @@
 extends Node2D
 
+# ==============================================================================
+# ENUMS E CONSTANTES
+# ==============================================================================
 const INIMIGO_CENA := preload("res://inimigo/inimigo.tscn")
+
+# ==============================================================================
+# CONFIGURAÇÕES E VARIÁVEIS EXPORTADAS
+# ==============================================================================
 @export var tipos_disponiveis: Array[InimigoData] = []
 
+# ==============================================================================
+# REFERÊNCIAS A NÓS (ONREADY)
+# ==============================================================================
 @onready var timer_spawn = $Timer
 
+# ==============================================================================
+# MÉTODOS NATIVOS DA GODOT
+# ==============================================================================
 func _ready() -> void:
 	timer_spawn.start()
 
-func _on_timer_timeout() -> void:
-	var dados_sorteados = tipos_disponiveis.pick_random()
-	spawnar_inimigo(dados_sorteados)
-
-
+# ==============================================================================
+# MÉTODOS CUSTOMIZADOS (SISTEMA DE SPAWN)
+# ==============================================================================
 func spawnar_inimigo(dados: InimigoData):
 	var inimigo = INIMIGO_CENA.instantiate()
 	inimigo.dados = dados
@@ -54,3 +65,10 @@ func posicao_do_spawn():
 				randf_range(camera_pos.x - half_size.x, camera_pos.x + half_size.x),
 				camera_pos.y + half_size.y + 100
 			)
+
+# ==============================================================================
+# SINAIS (CONNECTORS)
+# ==============================================================================
+func _on_timer_timeout() -> void:
+	var dados_sorteados = tipos_disponiveis.pick_random()
+	spawnar_inimigo(dados_sorteados)
