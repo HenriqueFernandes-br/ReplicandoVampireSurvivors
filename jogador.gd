@@ -1,20 +1,29 @@
 extends CharacterBody2D
 
+# ==============================================================================
+# CONFIGURAÇÕES E VARIÁVEIS EXPORTADAS
+# ==============================================================================
 @export var speed = 150
-@onready var animated_sprite = %AnimatedSprite2D
-var sofrendo_dano := false
-@export var vida = 100
-var dano_sofrido := 0
+@export var vida_maxima = 100
+@export var vida_atual = vida_maxima
 
+# ==============================================================================
+# REFERÊNCIAS A NÓS (ONREADY)
+# ==============================================================================
+@onready var animated_sprite = %AnimatedSprite2D
 @onready var intervalo_dano = $IntervaloDano
 
+# ==============================================================================
+# VARIÁVEIS DE ESTADO INTERNO
+# ==============================================================================
+var sofrendo_dano := false
+var dano_sofrido := 0
+
+# ==============================================================================
+# MÉTODOS NATIVOS DA GODOT
+# ==============================================================================
 func _ready():
 	add_to_group("jogador")
-
-func get_input():
-	var input_direction = Input.get_vector("left", "right", "up", "down")
-	input_direction = input_direction.normalized()
-	velocity = input_direction * speed
 
 func _physics_process(delta):
 	var direction_x = Input.get_axis("left", "right")
@@ -36,9 +45,20 @@ func _physics_process(delta):
 	if not inimigos_encostando:
 		sofrendo_dano = false
 
-func sofrer_dano():
-	vida -= dano_sofrido
+# ==============================================================================
+# MÉTODOS CUSTOMIZADOS (CONTROLE E LÓGICA DO JOGADOR)
+# ==============================================================================
+func get_input():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	input_direction = input_direction.normalized()
+	velocity = input_direction * speed
 
+func sofrer_dano():
+	vida_atual -= dano_sofrido
+
+# ==============================================================================
+# SINAIS (CONNECTORS)
+# ==============================================================================
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("inimigos"):
 		sofrendo_dano = true
@@ -46,11 +66,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		sofrer_dano()
 		intervalo_dano.start()
 
-
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("inimigos"):
 		dano_sofrido -= body.dano
-
 
 func _on_intervalo_dano_timeout() -> void:
 	if sofrendo_dano == true:
