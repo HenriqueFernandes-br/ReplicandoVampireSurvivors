@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
 # ==============================================================================
+# SINAIS CUSTOMIZADOS
+# ==============================================================================
+signal vida_mudou
+
+# ==============================================================================
 # CONFIGURAÇÕES E VARIÁVEIS EXPORTADAS
 # ==============================================================================
 @export var speed = 150
-@export var vida_maxima = 100
+@export var vida_maxima = 500
 @export var vida_atual = vida_maxima
 
 # ==============================================================================
@@ -12,6 +17,7 @@ extends CharacterBody2D
 # ==============================================================================
 @onready var animated_sprite = %AnimatedSprite2D
 @onready var intervalo_dano = $IntervaloDano
+@onready var barra_vida = $BarraDeVida
 
 # ==============================================================================
 # VARIÁVEIS DE ESTADO INTERNO
@@ -24,6 +30,8 @@ var dano_sofrido := 0
 # ==============================================================================
 func _ready():
 	add_to_group("jogador")
+	barra_vida.max_value = vida_maxima
+	barra_vida.value = vida_atual
 
 func _physics_process(delta):
 	var direction_x = Input.get_axis("left", "right")
@@ -47,8 +55,6 @@ func _physics_process(delta):
 	
 	if vida_atual < 0:
 		vida_atual = 0
-	
-	print(vida_atual)
 
 # ==============================================================================
 # MÉTODOS CUSTOMIZADOS (CONTROLE E LÓGICA DO JOGADOR)
@@ -60,6 +66,8 @@ func get_input():
 
 func sofrer_dano():
 	vida_atual -= dano_sofrido
+	vida_mudou.emit()
+
 # ==============================================================================
 # SINAIS (CONNECTORS)
 # ==============================================================================
@@ -77,3 +85,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_intervalo_dano_timeout() -> void:
 	if sofrendo_dano == true:
 		sofrer_dano()
+
+func _on_vida_mudou() -> void:
+	barra_vida.value = vida_atual
+	barra_vida.max_value = vida_maxima

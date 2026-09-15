@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://me33qgv33qq5" path="res://scenario/pilar_pedra.tscn" id="3_yq54j"]
 [ext_resource type="Resource" uid="uid://c8dyrml07dlk6" path="res://inimigo/Pipeestrello/data/pipeestrello_data.tres" id="3_ysdx3"]
 [ext_resource type="Resource" uid="uid://dg7y1p7surmxv" path="res://inimigo/Zombie/data/zombie_data.tres" id="4_t8pok"]
+[ext_resource type="Texture2D" uid="uid://j8w3g6irbct2" path="res://chars/lifebar/lifebar_under.png" id="7_t8pok"]
+[ext_resource type="Texture2D" uid="uid://b4kbhdukbakny" path="res://chars/lifebar/lifebar_progress.png" id="8_mtw28"]
 
 [node name="Jogo" type="Node2D" unique_id=714268050]
 script = ExtResource("1_1ap6j")
@@ -29,6 +31,15 @@ position = Vector2(601, 316)
 
 [node name="Camera2D" type="Camera2D" parent="Jogador" unique_id=754521398]
 position = Vector2(1, -4)
+
+[node name="BarraDeVida" type="TextureProgressBar" parent="Jogador" unique_id=318349411]
+offset_left = -45.033123
+offset_top = 38.410583
+offset_right = 146.96687
+offset_bottom = 78.41058
+scale = Vector2(0.47, 0.47)
+texture_under = ExtResource("7_t8pok")
+texture_progress = ExtResource("8_mtw28")
 
 [node name="Pilares" type="Node2D" parent="." unique_id=439274143]
 
@@ -53,4 +64,5 @@ position = Vector2(706, 52)
 [node name="Timer" type="Timer" parent="." unique_id=960163674]
 wait_time = 0.17
 
+[connection signal="vida_mudou" from="Jogador" to="Jogador" method="_on_vida_mudou"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
