@@ -9,7 +9,7 @@ signal vida_mudou
 # CONFIGURAÇÕES E VARIÁVEIS EXPORTADAS
 # ==============================================================================
 @export var speed = 150
-@export var vida_maxima = 500
+@export var vida_maxima = 350
 @export var vida_atual = vida_maxima
 
 # ==============================================================================
