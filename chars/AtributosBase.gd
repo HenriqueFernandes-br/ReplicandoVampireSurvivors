@@ -1,5 +1,5 @@
 extends Resource
-class_name PersonagemData
+class_name AtributosData
 
 @export var vida_max: int = 100
 
