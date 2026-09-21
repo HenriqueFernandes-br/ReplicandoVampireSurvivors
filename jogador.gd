@@ -75,7 +75,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("inimigos"):
 		sofrendo_dano = true
 		dano_sofrido += body.dano
-		sofrer_dano()
+		vida_atual -= body.dano
+		vida_mudou.emit
 		intervalo_dano.start()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

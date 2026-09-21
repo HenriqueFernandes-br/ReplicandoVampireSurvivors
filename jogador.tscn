@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://darb7fyd4i0d5"]
 
 [ext_resource type="Script" uid="uid://cmm0cex261wcm" path="res://jogador.gd" id="1_c2wt1"]
-[ext_resource type="Texture2D" uid="uid://bcnp6ee8ags6" path="res://chars/antonio/4.png" id="2_j3kwt"]
-[ext_resource type="Texture2D" uid="uid://gib8bf6mq25y" path="res://chars/antonio/1.png" id="3_xswob"]
-[ext_resource type="Texture2D" uid="uid://4sci3jhma8w8" path="res://chars/antonio/2.png" id="4_82vy7"]
-[ext_resource type="Texture2D" uid="uid://bplbrnyd6sgv5" path="res://chars/antonio/3.png" id="5_kdflp"]
+[ext_resource type="Texture2D" uid="uid://bcnp6ee8ags6" path="res://chars/antonio/sprites/4.png" id="2_j3kwt"]
+[ext_resource type="Texture2D" uid="uid://gib8bf6mq25y" path="res://chars/antonio/sprites/1.png" id="3_xswob"]
+[ext_resource type="Texture2D" uid="uid://4sci3jhma8w8" path="res://chars/antonio/sprites/2.png" id="4_82vy7"]
+[ext_resource type="Texture2D" uid="uid://bplbrnyd6sgv5" path="res://chars/antonio/sprites/3.png" id="5_kdflp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 animations = [{
@@ -44,7 +44,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 31.815664
+radius = 30.46358
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 33.112587
