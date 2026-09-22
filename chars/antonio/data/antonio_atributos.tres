@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_rt0j6")
 vida_max = 20
+armadura = 1
 armadura_max = 0
 velocidade = 0.0
 forca = 0.0

@@ -8,8 +8,8 @@ signal vida_mudou
 # ==============================================================================
 # CONFIGURAÇÕES E VARIÁVEIS EXPORTADAS
 # ==============================================================================
-@export var speed = 150
-@export var vida_maxima = 350
+@export var speed = 150 # pixels de movimentação
+@export var vida_maxima = 100
 @export var vida_atual = vida_maxima
 
 # ==============================================================================
