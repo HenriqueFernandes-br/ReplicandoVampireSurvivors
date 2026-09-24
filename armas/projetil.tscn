@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://b1y1w15cie7ig"]
+
+[ext_resource type="Script" uid="uid://csm6rg62ue422" path="res://armas/projetil.gd" id="1_w64ty"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6tn2l"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(10, 10)
+
+[node name="Projetil" type="Area2D" unique_id=4274588]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_w64ty")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2056697320]
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+texture = SubResource("PlaceholderTexture2D_6tn2l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1719077348]
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1585370447]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

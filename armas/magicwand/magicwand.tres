@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MagicWand" format=3 uid="uid://y1ndvckeqaq4"]
+
+[ext_resource type="PackedScene" uid="uid://b1y1w15cie7ig" path="res://armas/projetil.tscn" id="1_j1tkk"]
+[ext_resource type="Script" uid="uid://3sx305cxhgr6" path="res://armas/magicwand/magicwand.gd" id="2_m8idg"]
+[ext_resource type="Texture2D" uid="uid://bv7anpua81mmo" path="res://armas/magicwand/magic_wand_texture.png" id="3_m8idg"]
+
+[resource]
+script = ExtResource("2_m8idg")
+nome = "MagicWand"
+texture = ExtResource("3_m8idg")
+dano = 10.0
+cooldown = 1.2
+speed = 1.0
+metadata/_custom_type_script = "uid://3sx305cxhgr6"

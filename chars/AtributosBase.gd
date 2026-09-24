@@ -1,6 +1,11 @@
 extends Resource
-class_name AtributosData
+class_name PersonagemData
 
+@export var nome: String
+@export var icone: Texture2D
+@export var sprite_frames: SpriteFrames
+
+# Atributos
 @export var vida_max: int = 100
 
 @export var regeneracao: float = 0.0

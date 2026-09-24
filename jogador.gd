@@ -18,6 +18,7 @@ signal vida_mudou
 @onready var animated_sprite = %AnimatedSprite2D
 @onready var intervalo_dano = $IntervaloDano
 @onready var barra_vida = $BarraDeVida
+@onready var alcance = $Alcance
 
 # ==============================================================================
 # VARIÁVEIS DE ESTADO INTERNO
@@ -68,6 +69,18 @@ func sofrer_dano():
 	vida_atual -= dano_sofrido
 	vida_mudou.emit()
 
+func achar_inimigo_proximo():
+	var no_raio = alcance.get_overlapping_bodies()
+	if no_raio:
+		var menor_dist: float = INF
+		var inimigo_mais_proximo
+		
+		for enemy in no_raio:
+			var dist = global_position.distance_squared_to(enemy.global_position)
+			if dist < menor_dist:
+				menor_dist = dist
+				inimigo_mais_proximo = enemy
+		return inimigo_mais_proximo
 # ==============================================================================
 # SINAIS (CONNECTORS)
 # ==============================================================================

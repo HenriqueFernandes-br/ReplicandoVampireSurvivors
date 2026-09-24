@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://darb7fyd4i0d5"]
 
 [ext_resource type="Script" uid="uid://cmm0cex261wcm" path="res://jogador.gd" id="1_c2wt1"]
+[ext_resource type="PackedScene" uid="uid://ceik42pv1q2eb" path="res://chars/slot.tscn" id="2_82vy7"]
 [ext_resource type="Texture2D" uid="uid://bcnp6ee8ags6" path="res://chars/antonio/sprites/4.png" id="2_j3kwt"]
+[ext_resource type="Resource" uid="uid://y1ndvckeqaq4" path="res://armas/magicwand/magicwand.tres" id="3_kdflp"]
 [ext_resource type="Texture2D" uid="uid://gib8bf6mq25y" path="res://chars/antonio/sprites/1.png" id="3_xswob"]
 [ext_resource type="Texture2D" uid="uid://4sci3jhma8w8" path="res://chars/antonio/sprites/2.png" id="4_82vy7"]
 [ext_resource type="Texture2D" uid="uid://bplbrnyd6sgv5" path="res://chars/antonio/sprites/3.png" id="5_kdflp"]
@@ -49,11 +51,36 @@ radius = 30.46358
 [sub_resource type="CircleShape2D" id="CircleShape2D_yf5fn"]
 radius = 33.112587
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_57qmd"]
+radius = 669.0054
+
 [node name="Jogador" type="CharacterBody2D" unique_id=1998024725]
 scale = Vector2(0.755, 0.755)
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_c2wt1")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1127119617]
+
+[node name="Armas" type="HBoxContainer" parent="UI" unique_id=2070345293]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Slot" parent="UI/Armas" unique_id=75388059 instance=ExtResource("2_82vy7")]
+layout_mode = 2
+arma = ExtResource("3_kdflp")
+
+[node name="Slot2" parent="UI/Armas" unique_id=484915923 instance=ExtResource("2_82vy7")]
+layout_mode = 2
+
+[node name="Slot3" parent="UI/Armas" unique_id=2042365562 instance=ExtResource("2_82vy7")]
+layout_mode = 2
+
+[node name="Slot4" parent="UI/Armas" unique_id=1264633158 instance=ExtResource("2_82vy7")]
+layout_mode = 2
+
+[node name="Slot5" parent="UI/Armas" unique_id=1458928585 instance=ExtResource("2_82vy7")]
+layout_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1375820578]
 unique_name_in_owner = true
@@ -73,6 +100,12 @@ shape = SubResource("CircleShape2D_yf5fn")
 
 [node name="IntervaloDano" type="Timer" parent="." unique_id=13709901]
 wait_time = 0.25
+
+[node name="Alcance" type="Area2D" parent="." unique_id=1811729863]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alcance" unique_id=966309213]
+shape = SubResource("CircleShape2D_57qmd")
 
 [connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Hitbox" to="." method="_on_area_2d_body_exited"]

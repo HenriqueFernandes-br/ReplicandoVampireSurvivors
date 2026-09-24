@@ -1,21 +1,23 @@
 [gd_scene format=3 uid="uid://b2qjm0xcr0y82"]
 
 [ext_resource type="Script" uid="uid://ds1ppyuoo3pgw" path="res://inimigo/inimigo.gd" id="1_nvf5u"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_yf5fn"]
+[ext_resource type="SpriteFrames" uid="uid://c5ghwxdes1ig1" path="res://inimigo/Pipeestrello/pipeestrello_frames.tres" id="2_uf7c4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 8.0
 
 [node name="inimigo" type="CharacterBody2D" unique_id=1143437841]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 motion_mode = 1
 script = ExtResource("1_nvf5u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=720648882]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_yf5fn")
+sprite_frames = ExtResource("2_uf7c4")
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=193068268]
 shape = SubResource("CircleShape2D_g4v7s")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

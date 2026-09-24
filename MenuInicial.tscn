@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqidaxk5yhh2m"]
+
+[ext_resource type="Texture2D" uid="uid://x4deq1rsqmrc" path="res://menu/background.jpg" id="1_ko3br"]
+
+[node name="Control" type="Control" unique_id=763270233]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1008579299]
+scale = Vector2(0.72, 0.72)
+transform = Transform2D(0.72, 0, 0, 0.72, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1836290267]
+offset_right = 1600.0
+offset_bottom = 900.0
+texture = ExtResource("1_ko3br")
